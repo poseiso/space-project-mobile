@@ -1,9 +1,13 @@
 # Pi Calculator App (React Native + Expo)
 
 A production-grade, type-safe React Native app built with Expo. This app connects to a backend service that calculates the value of π (Pi) and showcases how to build scalable, maintainable mobile architecture with first-class TypeScript support.
-<img width="738" height="1640" alt="image" src="https://github.com/user-attachments/assets/2d6743a3-a667-467c-9be1-95408e10129c" />
-<img width="738" height="1640" alt="image" src="https://github.com/user-attachments/assets/5af9d77e-549c-4dcf-9212-eaa75f913fa4" />
-https://github.com/user-attachments/assets/58fbbffc-3165-4e3b-a594-9729f35906ad
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/2d6743a3-a667-467c-9be1-95408e10129c" width="30%" />
+  <img src="https://github.com/user-attachments/assets/5af9d77e-549c-4dcf-9212-eaa75f913fa4" width="30%" />
+  <a href="https://github.com/user-attachments/assets/58fbbffc-3165-4e3b-a594-9729f35906ad" target="_blank">
+    <img src="https://img.icons8.com/ios-filled/100/play--v1.png" width="10%" title="Watch Demo Video" />
+  </a>
+</p>
 
 
 
