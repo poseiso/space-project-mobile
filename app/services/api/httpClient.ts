@@ -1,7 +1,8 @@
+import Config from '@/config';
 import axios, { AxiosInstance } from 'axios';
 
 const httpClient: AxiosInstance = axios.create({
-  baseURL: 'https://space.posei.me', // replace with env var
+  baseURL: Config.API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
