@@ -1,50 +1,117 @@
-# Welcome to your Expo app 👋
+# Pi Calculator App (React Native + Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A production-grade, type-safe React Native app built with Expo. This app connects to a backend service that calculates the value of π (Pi) and showcases how to build scalable, maintainable mobile architecture with first-class TypeScript support.
 
-## Get started
+## Features
 
-1. Install dependencies
+This project isn't just a demo, it's **production ready and extensible**.
 
-   ```bash
-   npm install
-   ```
+### Developer Experience & Architecture
 
-2. Start the app
+- **Custom navigation layer** for improved DX (better than file-based routing)
+- **Zustand** for state management, with **MMKV persistence wrapper**
+- **Separation of concerns**: API client, endpoints, models, providers, and repositories — like a real backend SDK
+- **Premade common components** — all extended from `react-native` for consistency and reusability
+- **Internationalization & Localization**, built-in
+  - **Type-safe** i18n using TypeScript “black magic” (auto-detect keys, prevent typos)
+- **Full theming system**:
+  - Light/Dark modes (read from system)
+  - Centralized spacing & color tokens
+  - Theme available everywhere via context
+- **Error Boundary** with friendly UI and reset option
+- **Type-safe from top to bottom**
 
-   ```bash
-   npx expo start
-   ```
 
-In the output, you'll find options to open the app in a
+## Production-Ready Toolkit
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+| Tool/Area         | Details                                                                 |
+|------------------|-------------------------------------------------------------------------|
+| 🛠 Config         | Separate `env` loaders for dev & prod builds                            |
+| 📦 Local Storage  | Fully configured MMKV storage + Zustand integration                     |
+| 🕓 Date Utils     | Built-in formatter using standard lib / custom helpers                  |
+| ⚓️ Common Hooks   | `useSafeArea`, `useIsMounted` and more                                 |
+| 📚 Component Lib  | All UI built with shared design system + constants                      |
+| 📱 Navigation     | Custom-built router for intuitive, DX-friendly screen management        |
+| 🔌 API Layer      | Decoupled layers: `client` → `endpoints` → `models` → `repo` → `hooks`  |
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
+## App Functionality
 
-When you're ready, run:
+* **Calculate Pi with increasing accuracy**
 
-```bash
-npm run reset-project
+  * Server continuously computes Pi to greater precision
+  * Supports **Pause**, **Resume**, and **Reset** of the calculation
+
+* **Solar System Circumference Calculator**
+
+  * Dynamically calculates the **Sun**, **Earth**, and **Mars** circumferences
+  * Precision updates in real-time based on current Pi value
+  * Toggle units between **kilometers** and **miles**
+
+* **Reactive Shared State**
+
+  * State is shared and synchronized across all screens
+  * Any update to Pi or units reflects instantly across relevant views
+
+
+## 📦 Stack
+
+- [Expo SDK](https://docs.expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Zustand](https://github.com/pmndrs/zustand)
+- [MMKV](https://github.com/mrousavy/react-native-mmkv)
+
+
+## ▶️ Running the App
+
+* Use `npm install` to install dependencies
+* Start the app with `npx expo run:android`
+* If using the **provided APK**, it’s already linked to a hosted production backend — no setup required.
+
+
+### 🛠️ Custom Backend (optional)
+
+To use your own local backend server:
+
+* Create a `.env` file
+* Set `API_BASE_URL` to your backend endpoint, e.g.:
+
+```env
+API_BASE_URL=http://192.168.0.X:4000
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
+## Structure Overview
 
-To learn more about developing your project with Expo, look at the following resources:
+```
+app/
+├── components/     # Premade extended RN components (type-safe, styled, i18n-ready)
+├── config/         # environment configs, dev/prod switches
+├── i18n/           # Fully type-safe internationalization setup
+├── navigators/     # Custom navigation system with enhanced DX
+├── screens/        # Screen-level views (Pi Calculator, Solar System, etc.)
+├── services/       # API clients, endpoints, repositories
+├── theme/          # Light & dark mode tokens, spacing, context access
+├── utils/          # Formatters, hooks, helpers (e.g. `useSafeArea`, `useIsMounted`)
+└── app.tsx         # App root — wires providers, theme, navigation
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Caveats
 
-## Join the community
+* Due to backend design constraints, **all Pi calculation state is shared globally**.
+  That means:
 
-Join our community of developers creating universal apps.
+  > “One person resets = everyone’s calculation resets.”
+  > This will be addressed in future iterations.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## License
+
+MIT — but really this is more a template than a product.
+
+
+## Author
+
+Built by [Posei](https://github.com/posei) — made to demonstrate production-grade mobile architecture, not just build an app.
+
